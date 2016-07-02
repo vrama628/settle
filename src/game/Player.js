@@ -1,7 +1,5 @@
 'use strict';
 
-const RuleError = require('./RuleError');
-
 module.exports = class Player {
   constructor() {
     let cards = {
@@ -40,11 +38,7 @@ module.exports = class Player {
     this.remove = (cardType, number) => {
       if (cardType in cards) {
         if (number >= 0) {
-          if (number <= cards[cardType]) {
-            cards[cardType] = cards[cardType] - number;
-          } else {
-            throw new RuleError(`Not enough ${cardType} cards to do this.`);
-          }
+          cards[cardType] = cards[cardType] - number;
         } else {
           throw new Error('The number of cards to remove must be nonnegative.');
         }

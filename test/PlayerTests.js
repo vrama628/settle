@@ -2,8 +2,7 @@
 
 const expect = require('chai').expect;
 
-const Player = require('../src/game/Player'),
-      RuleError = require('../src/game/RuleError');
+const Player = require('../src/game/Player');
 
 describe('Player', function() {
   describe('constructor', function() {
@@ -28,11 +27,7 @@ describe('Player', function() {
   });
 
   describe('#get(cardType)', function() {
-    it("returns the number of cards of type cardType if that type exists.", function() {
-      let player = new Player();
-      player.add('Wheat', 2);
-      expect(player.get('Wheat')).to.equal(2);
-    });
+    it("returns the number of cards of type cardType if that type exists.", () => "tested indirectly.");
 
     it("throws an Error if the type cardType doesn't exist.", function() {
       let player = new Player();
@@ -61,7 +56,7 @@ describe('Player', function() {
   });
 
   describe('#remove(cardType, number)', function() {
-    it("removes number cards of type cardType if type cardType exists, number is nonnegative, and doing so will result in a nonnegative number of remaining cards.", function() {
+    it("removes number cards of type cardType if type cardType exists and number is nonnegative.", function() {
       let player = new Player();
       player.add('Brick', 3);
       let initial = player.get('Brick');
@@ -80,11 +75,6 @@ describe('Player', function() {
       let player = new Player();
       player.add('Brick', 3);
       expect(() => player.remove('Brick', -3)).to.throw(Error);
-    });
-
-    it("throws a RuleError if type cardType exists and number is nonnegative but removing this many cards would result in a negative number of remaining cards.", function() {
-      let player = new Player();
-      expect(() => player.remove('Brick', 3)).to.throw(RuleError);
     });
   });
 });
