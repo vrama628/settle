@@ -1,5 +1,7 @@
 'use strict';
 
+const _ = require('underscore');
+
 module.exports = class Player {
   constructor() {
     let cards = {
@@ -46,5 +48,7 @@ module.exports = class Player {
         throw new Error(`${cardType} is not a valid card type.`);
       }
     };
+
+    this.toPlain = () => _.clone(cards);
   }
 }

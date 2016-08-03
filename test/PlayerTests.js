@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 
-const Player = require('../src/game/Player');
+const Player = require('../src/Game/Player');
 
 describe('Player', function() {
   describe('constructor', function() {
@@ -75,6 +75,14 @@ describe('Player', function() {
       let player = new Player();
       player.add('Brick', 3);
       expect(() => player.remove('Brick', -3)).to.throw(Error);
+    });
+  });
+
+  describe('#toPlain()', function() {
+    it("returns an object whose xth field is the amount of x the player has.", function() {
+      let player = new Player();
+      player.add('Ore', 2);
+      expect(player.toPlain().Ore).to.equal(2);
     });
   });
 });
