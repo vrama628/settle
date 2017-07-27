@@ -10,7 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.7"
   },
   "dependencies": {
     "underscore": "^1.8.3"

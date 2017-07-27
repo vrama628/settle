@@ -2,7 +2,7 @@
 
 const _ = require('underscore');
 
-module.exports = class Player {
+module.exports = class Player { // to do: add settlements, roads, and cities
   constructor() {
     let cards = {
       Brick: 0,
